@@ -12,9 +12,10 @@
     }
   ],
   "require": {
-    "php":                      ">=5.4.0",
+    "php": ">=5.4.0",
     "symfony/framework-bundle": "~2.3|~3.0",
-    "twig/twig":                "~1.12|~2"
+    "doctrine/orm": "*",
+    "doctrine/doctrine-bundle": "*"
   },
   "autoload": {
     "psr-4": {
