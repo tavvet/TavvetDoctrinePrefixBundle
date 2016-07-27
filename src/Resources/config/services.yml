@@ -1,0 +1,7 @@
+services:
+    tavvet_doctrine_prefix.prefix_naming_strategy:
+        class: Tavvet\DoctrinePrefixBundle\Doctrine\ORM\Mapping\PrefixNamingStrategy
+        arguments: [%tavvet_doctrine_prefix.table_prefix%, %tavvet_doctrine_prefix.column_prefix%]
+        calls:
+            - [setContainer, ['@service_container']]
+            - [setStrategy, [%tavvet_doctrine_prefix.naming_strategy%]]
