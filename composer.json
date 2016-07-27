@@ -1,5 +1,5 @@
 {
-  "name": "tavvet/tavvet-paginator-bundle",
+  "name": "tavvet/tavvet-doctrine-prefix-bundle",
   "type": "symfony-bundle",
   "description": "Bundle for Symfony2/3 to add a prefix to tables and columns database",
   "keywords": ["doctrine", "symfony2", "symfony3", "bundle", "tavvet", "prefix", "table", "column"],
