@@ -12,10 +12,9 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('tavvet_doctrine_prefix');
+        $treeBuilder = new TreeBuilder('tavvet_doctrine_prefix');
 
-        $rootNode
+        $treeBuilder->getRootNode()
             ->children()
                 ->scalarNode('table_prefix')->defaultValue('')->end()
                 ->scalarNode('column_prefix')->defaultValue('')->end()
