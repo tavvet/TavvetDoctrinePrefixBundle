@@ -13,8 +13,10 @@ class TavvetDoctrinePrefixExtension extends Extension
     /**
      * @param array $configs
      * @param ContainerBuilder $container
+     * @return void
+     * @throws \Exception
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
@@ -26,6 +28,7 @@ class TavvetDoctrinePrefixExtension extends Extension
 
         $container->setParameter('tavvet_doctrine_prefix.table_prefix', $config['table_prefix']);
         $container->setParameter('tavvet_doctrine_prefix.column_prefix', $config['column_prefix']);
-        $container->setParameter('tavvet_doctrine_prefix.naming_strategy', $config['naming_strategy']);
+        $container->setParameter('tavvet_doctrine_prefix.naming_strategy.type', $config['naming_strategy']['type']);
+        $container->setParameter('tavvet_doctrine_prefix.naming_strategy.arguments', $config['naming_strategy']['arguments']);
     }
 }

@@ -8,9 +8,9 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 class Configuration implements ConfigurationInterface
 {
     /**
-     * {@inheritdoc}
+     * @return TreeBuilder
      */
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('tavvet_doctrine_prefix');
 
@@ -18,7 +18,13 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->scalarNode('table_prefix')->defaultValue('')->end()
                 ->scalarNode('column_prefix')->defaultValue('')->end()
-                ->scalarNode('naming_strategy')->defaultValue('doctrine.orm.naming_strategy.default')->end()
+                ->arrayNode('naming_strategy')
+                    ->children()
+                        ->scalarNode('type')->defaultValue('doctrine.orm.naming_strategy.underscore')->end()
+                        ->arrayNode('arguments')
+                            ->scalarPrototype()->defaultValue([])->end()
+                        ->end()
+                    ->end()
             ->end()
         ;
 

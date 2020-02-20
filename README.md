@@ -14,5 +14,7 @@ doctrine:
 tavvet_doctrine_prefix:
     table_prefix: t_ # default ''
     column_prefix: c__ # default ''
-    naming_strategy: doctrine.orm.naming_strategy.underscore # default - 'doctrine.orm.naming_strategy.default'
+    naming_strategy:
+        type: doctrine.orm.naming_strategy.underscore # default - 'doctrine.orm.naming_strategy.underscore'
+        arguments: [0, false] # Constructor arguments for base naming strategy 
 ```
