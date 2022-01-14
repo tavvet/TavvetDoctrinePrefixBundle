@@ -10,7 +10,7 @@ class PrefixNamingStrategy implements NamingStrategy
     use ContainerAwareTrait;
     
     /**
-     * @var NamingStrategy
+     * @var NamingStrategy|null
      */
     protected ?NamingStrategy $strategy;
 
@@ -70,11 +70,23 @@ class PrefixNamingStrategy implements NamingStrategy
      * @param string $embeddedColumnName
      * @param string|null $className
      * @param string|null $embeddedClassName
+     *
      * @return string
      */
-    public function embeddedFieldToColumnName($propertyName, $embeddedColumnName, $className = null, $embeddedClassName = null): string
-    {
-        return $this->columnPrefix . $this->strategy->embeddedFieldToColumnName($propertyName, $embeddedColumnName, $className, $embeddedClassName);
+    public function embeddedFieldToColumnName(
+        $propertyName,
+        $embeddedColumnName,
+        $className = null,
+        $embeddedClassName = null
+    ): string {
+        return $this->columnPrefix
+            . $this->strategy->embeddedFieldToColumnName(
+                $propertyName,
+                $embeddedColumnName,
+                $className,
+                $embeddedClassName
+            )
+        ;
     }
 
     /**
@@ -87,6 +99,7 @@ class PrefixNamingStrategy implements NamingStrategy
 
     /**
      * @param string $propertyName
+     *
      * @return string
      */
     public function joinColumnName($propertyName/*, $className = null*/): string
@@ -98,9 +111,10 @@ class PrefixNamingStrategy implements NamingStrategy
      * @param string $sourceEntity
      * @param string $targetEntity
      * @param string|null $propertyName
+     *
      * @return string
      */
-    public function joinTableName($sourceEntity, $targetEntity, $propertyName = null)
+    public function joinTableName($sourceEntity, $targetEntity, $propertyName = null): string
     {
         return $this->tablePrefix . $this->strategy->joinTableName($sourceEntity, $targetEntity, $propertyName);
     }
@@ -108,6 +122,7 @@ class PrefixNamingStrategy implements NamingStrategy
     /**
      * @param string $entityName
      * @param string|null $referencedColumnName
+     *
      * @return string
      */
     public function joinKeyColumnName($entityName, $referencedColumnName = null): string
