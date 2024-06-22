@@ -13,8 +13,8 @@
   ],
   "require": {
     "php": "~8.0",
-    "symfony/framework-bundle": "~6.0",
-    "doctrine/orm": "~2.11"
+    "symfony/framework-bundle": "~7.0",
+    "doctrine/orm": "~3.2"
   },
   "autoload": {
     "psr-4": {
