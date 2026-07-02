@@ -83,6 +83,30 @@ If you rely on the prefix being applied across the whole schema (e.g. a shared
 database), avoid hard-coding `name:` on tables and columns and let the naming
 strategy generate them.
 
+## Troubleshooting
+
+### `Symfony LazyGhost is not available` on PHP 8.4
+
+On PHP 8.4 with doctrine-bundle 3.x you may hit, when the entity manager boots:
+
+```
+Symfony LazyGhost is not available. Please install the "symfony/var-exporter"
+package version 6.4 or 7 to use this feature or enable PHP 8.4 native lazy objects.
+```
+
+This is a Doctrine / PHP 8.4 concern, not this bundle — on that stack `symfony/var-exporter`
+resolves to v8, which dropped the LazyGhost helper, so the ORM needs PHP native lazy
+objects. Enable them in your Doctrine config:
+
+```yaml
+doctrine:
+    orm:
+        enable_native_lazy_objects: true
+```
+
+Recent doctrine-bundle recipes may already set this; the option requires
+doctrine-bundle 3.x and PHP 8.4+.
+
 ## Development
 
 Everything runs in Docker, no local PHP toolchain needed.
