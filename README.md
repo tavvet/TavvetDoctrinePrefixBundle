@@ -8,8 +8,8 @@ several applications share one database schema and need namespaced tables/column
 
 ## Requirements
 
-- PHP ^8.2
-- `symfony/framework-bundle` ~7.0
+- PHP ^8.2 (PHP 8.4+ is required when running on Symfony 8)
+- `symfony/framework-bundle` ^7.0 || ^8.0
 - `doctrine/orm` ~3.2
 
 ## Installation

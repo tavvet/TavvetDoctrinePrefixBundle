@@ -31,7 +31,6 @@ class TestKernel extends Kernel
         ]);
 
         $orm = [
-            'auto_generate_proxy_classes' => true,
             'naming_strategy' => 'tavvet_doctrine_prefix.prefix_naming_strategy',
             'auto_mapping' => false,
             'mappings' => [
