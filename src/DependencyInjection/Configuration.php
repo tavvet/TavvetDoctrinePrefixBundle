@@ -16,6 +16,7 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('table_prefix')->defaultValue('')->end()
                 ->scalarNode('column_prefix')->defaultValue('')->end()
                 ->arrayNode('naming_strategy')
+                    ->addDefaultsIfNotSet()
                     ->children()
                         ->scalarNode('type')->defaultValue('doctrine.orm.naming_strategy.underscore')->end()
                         ->arrayNode('arguments')

@@ -1,0 +1,11 @@
+services:
+  php:
+    build: .
+    volumes:
+      - .:/app
+      - composer-cache:/root/.composer/cache
+    working_dir: /app
+    command: ["tail", "-f", "/dev/null"]
+
+volumes:
+  composer-cache:

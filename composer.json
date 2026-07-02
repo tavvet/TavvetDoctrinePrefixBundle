@@ -1,8 +1,8 @@
 {
   "name": "tavvet/tavvet-doctrine-prefix-bundle",
   "type": "symfony-bundle",
-  "description": "Bundle for Symfony5 to add a prefix to tables and columns database",
-  "keywords": ["doctrine", "symfony5", "bundle", "tavvet", "prefix", "table", "column"],
+  "description": "Bundle for Symfony7 to add a prefix to tables and columns database",
+  "keywords": ["doctrine", "symfony7", "bundle", "tavvet", "prefix", "table", "column"],
   "homepage": "https://github.com/tavvet/TavvetDoctrinePrefixBundle",
   "license": "MIT",
   "authors": [
@@ -12,13 +12,27 @@
     }
   ],
   "require": {
-    "php": "~8.0",
+    "php": "^8.2",
     "symfony/framework-bundle": "~7.0",
+    "symfony/yaml": "~7.0",
     "doctrine/orm": "~3.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^11.0",
+    "doctrine/doctrine-bundle": "^2.12",
+    "phpstan/phpstan": "^2.0"
   },
   "autoload": {
     "psr-4": {
       "Tavvet\\DoctrinePrefixBundle\\": "src/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tavvet\\DoctrinePrefixBundle\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit"
   }
 }
